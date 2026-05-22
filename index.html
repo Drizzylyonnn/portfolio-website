@@ -410,12 +410,12 @@ nav {
     <div class="skills">
 
       <div class="skill-card">
-        <h3>HTML5</h3>
+        <h3>HTML</h3>
         <p>Semantic and accessible website structure.</p>
       </div>
 
       <div class="skill-card">
-        <h3>CSS3</h3>
+        <h3>CSS</h3>
         <p>Responsive layouts and modern animations.</p>
       </div>
 
@@ -503,13 +503,15 @@ nav {
 
       <div class="contact-box">
 
-        <form action="https://formspree.io/f/xeedkrbo"
-  method="POST">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea placeholder="Your Message"></textarea>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
           <button class="btn" button type="submit">Send Message</button>
+          
+          <p id="form-status"></p>
+          
         </form>
 
       </div>
@@ -530,6 +532,6 @@ menuToggle.onclick = function () {
   navLinks.classList.toggle("active");
 };
 </script>
-
+  <script src="contact.js"></script>
 </body>
 </html>
