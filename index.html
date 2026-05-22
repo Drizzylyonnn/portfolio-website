@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>David | Frontend Developer & UI/UX Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:#fff;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+    nav{
+      width:100%;
+      padding:20px 0;
+      position:fixed;
+      top:0;
+      left:0;
+      background:rgba(15, 23, 42, 0.9);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    .nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:100px;
+    }
+
+    .hero-content{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      align-items:center;
+      gap:50px;
+    }
+
+    .hero-text h3{
+      color:#38bdf8;
+      font-size:22px;
+    }
+
+    .hero-text h1{
+      font-size:60px;
+      margin:10px 0;
+      line-height:1.1;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 30px;
+      background:#38bdf8;
+      color:#0f172a;
+      border-radius:8px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      background:#0ea5e9;
+    }
+
+    .hero-image{
+      text-align:center;
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:400px;
+      border-radius:20px;
+      border:4px solid #38bdf8;
+    }
+
+    /* ABOUT */
+    section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:40px;
+      color:#38bdf8;
+    }
+
+    .about-content{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-box{
+      background:#1e293b;
+      padding:30px;
+      border-radius:15px;
+    }
+
+    /* SKILLS */
+   .skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.skill-card{
+  background:#1e293b;
+  padding:35px 25px;
+  border-radius:18px;
+  text-align:center;
+  transition:0.4s ease;
+  border:1px solid transparent;
+}
+
+.skill-card:hover{
+  transform:translateY(-10px);
+  background:#334155;
+  border-color:#38bdf8;
+  box-shadow:0 10px 30px rgba(56,189,248,0.2);
+}
+
+.skill-card h3{
+  margin-bottom:12px;
+  color:#38bdf8;
+  font-size:22px;
+}
+
+.skill-card p{
+  color:#cbd5e1;
+  font-size:15px;
+}
+
+    /* PROJECTS */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:#1e293b;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .project-info{
+      padding:20px;
+    }
+
+    .project-info h3{
+      margin-bottom:10px;
+      color:#38bdf8;
+    }
+
+    /* CONTACT */
+    .contact-box{
+      max-width:700px;
+      margin:auto;
+      background:#1e293b;
+      padding:40px;
+      border-radius:15px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input, textarea{
+      padding:15px;
+      border:none;
+      border-radius:10px;
+      outline:none;
+      background:#334155;
+      color:#fff;
+    }
+
+    textarea{
+      resize:none;
+      height:150px;
+    }
+
+    button{
+      border:none;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:30px 0;
+      border-top:1px solid #334155;
+      color:#94a3b8;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .nav-links{
+        gap:15px;
+        font-size:14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">David.</div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h3>Hello, I'm</h3>
+        <h1>David</h1>
+        <h2>Frontend Developer & UI/UX Designer</h2>
+
+        <p>
+          I’m a creative frontend developer and UI/UX designer with 2 years of experience building responsive, user-friendly, and modern websites that help brands grow online.
+        </p>
+
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=987&auto=format&fit=crop" alt="Developer">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+
+      <div class="about-content">
+
+        <div class="about-box">
+          <h3>Who I Am</h3>
+          <p>
+            I specialize in creating clean, responsive, and visually appealing websites. I focus on user experience, modern UI design, and smooth interactions that make websites stand out.
+          </p>
+        </div>
+
+        <div class="about-box">
+          <h3>My Goal</h3>
+          <p>
+            My goal is to help businesses and brands build strong online presence through high-quality websites that are fast, professional, and conversion-focused.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>My Skills</h2>
+    </div>
+
+    <div class="skills">
+
+      <div class="skill-card">
+        <h3>HTML5</h3>
+        <p>Semantic and accessible website structure.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>CSS3</h3>
+        <p>Responsive layouts and modern animations.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>JavaScript</h3>
+        <p>Interactive and dynamic web experiences.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>UI/UX Design</h3>
+        <p>User-friendly and modern interface design.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Figma</h3>
+        <p>Professional UI/UX wireframing and prototyping.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Canva</h3>
+        <p>Creative social media and branding designs.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Photoshop</h3>
+        <p>Photo editing and advanced graphic design.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Responsive Design</h3>
+        <p>Mobile-friendly layouts for all screen sizes.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+
+      <div class="projects">
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1115&auto=format&fit=crop" alt="">
+          <div class="project-info">
+            <h3>Business Website</h3>
+            <p>Modern responsive business website with clean UI and fast performance.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1170&auto=format&fit=crop" alt="">
+          <div class="project-info">
+            <h3>Portfolio Design</h3>
+            <p>Creative portfolio website showcasing modern UI/UX design principles.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1170&auto=format&fit=crop" alt="">
+          <div class="project-info">
+            <h3>E-Commerce UI</h3>
+            <p>Responsive shopping interface focused on user experience and conversion.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact Me</h2>
+      </div>
+
+      <div class="contact-box">
+
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message"></textarea>
+
+          <button class="btn">Send Message</button>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 David. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
