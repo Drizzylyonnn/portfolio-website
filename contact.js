@@ -7,7 +7,7 @@ form.addEventListener("submit", async function (e) {
   const data = new FormData(form);
 
   try {
-    const response = await fetch("https://formspree.io/f/maqveylb", {
+    const response = await fetch("https://formspree.io/f/xeedkrbo", {
       method: "POST",
       body: data,
       headers: {
